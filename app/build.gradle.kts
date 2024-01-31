@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.serialization)
 }
 
 android {
@@ -70,4 +71,11 @@ dependencies {
 
     //Coil
     implementation(libs.coil.compose)
+
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit2.kotlinx.serialization.converter)
+
+    //Kotlinx Serialization
+    implementation(libs.kotlinx.serialization.json)
 }
