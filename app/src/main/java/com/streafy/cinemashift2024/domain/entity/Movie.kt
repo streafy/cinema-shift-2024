@@ -7,5 +7,5 @@ data class Movie(
     val genres: List<String>,
     val country: String,
     val userRating: Float,
-    val releaseYear: Int
+    val releaseYear: Int?
 )
