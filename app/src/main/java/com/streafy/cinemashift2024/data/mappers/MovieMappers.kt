@@ -10,11 +10,13 @@ import java.util.Locale
 fun MovieDto.toMovie() = Movie(
     id = id.toInt(),
     name = name,
+    originalName = originalName,
     description = description,
     genres = genres,
     country = country.name,
     userRating = userRatings.kinopoisk.toFloat(),
     releaseYear = releaseDate.parseYear(),
+    img = img
 )
 
 private fun String.parseYear(): Int? {
