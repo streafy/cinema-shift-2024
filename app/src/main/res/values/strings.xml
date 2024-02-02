@@ -3,7 +3,9 @@
     <string name="movie_list_screen_name">Афиша</string>
     <string name="tickets_screen_name">Билеты</string>
     <string name="profile_screen_name">Профиль</string>
-    <string name="error">Ошибка</string>
+    <string name="error">Ошибка: %1$s</string>
+    <string name="unknown_error">Неизвестная ошибка</string>
     <string name="details">Подробнее</string>
     <string name="show_schedule">Посмотреть расписание</string>
+    <string name="retry">Повторить попытку</string>
 </resources>

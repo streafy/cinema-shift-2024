@@ -1,14 +1,12 @@
 package com.streafy.cinemashift2024.presentation.moviedetails
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.streafy.cinemashift2024.R
 import com.streafy.cinemashift2024.domain.entity.Movie
+import com.streafy.cinemashift2024.presentation.shared.screenstate.ErrorScreen
 import com.streafy.cinemashift2024.presentation.shared.screenstate.Loading
 
 @Composable
@@ -28,7 +26,10 @@ fun MovieDetailsScreen(
             stateValue.movie,
             onShowScheduleClick
         )
-        is MovieDetailsUiState.Error -> Text(text = stringResource(R.string.error))
+        is MovieDetailsUiState.Error -> ErrorScreen(
+            errorMessage = stateValue.message,
+            onRetry = { viewModel.loadMovieById(movieId) }
+        )
         MovieDetailsUiState.Initial -> Unit
         MovieDetailsUiState.Loading -> Loading()
     }
