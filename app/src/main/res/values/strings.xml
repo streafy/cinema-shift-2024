@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">cinema-shift-2024</string>
+    <string name="movie_list_screen_name">Афиша</string>
+    <string name="tickets_screen_name">Билеты</string>
+    <string name="profile_screen_name">Профиль</string>
+    <string name="error">Ошибка</string>
+    <string name="details">Подробнее</string>
 </resources>
