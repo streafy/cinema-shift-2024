@@ -12,9 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.streafy.cinemashift2024.R
 
 @Composable
 fun Description(
@@ -23,7 +21,8 @@ fun Description(
     ratingBarValue: Int,
     ratingBarMaxValue: Int,
     rating: Float,
-    onDetailsClick: () -> Unit,
+    buttonText: String,
+    onClick: () -> Unit,
     descriptionText: String = ""
 ) {
     Column(
@@ -38,7 +37,7 @@ fun Description(
             )
         }
         Button(
-            onClick = onDetailsClick,
+            onClick = onClick,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(56.dp),
@@ -46,7 +45,7 @@ fun Description(
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF9534D2))
         ) {
             Text(
-                text = stringResource(R.string.details)
+                text = buttonText
             )
         }
     }

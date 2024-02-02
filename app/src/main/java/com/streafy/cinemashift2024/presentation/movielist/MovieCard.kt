@@ -5,7 +5,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.streafy.cinemashift2024.R
 import com.streafy.cinemashift2024.domain.entity.Movie
 import com.streafy.cinemashift2024.presentation.shared.cardelements.Description
 import com.streafy.cinemashift2024.presentation.shared.cardelements.ImageWithLabel
@@ -34,7 +36,8 @@ fun MovieCard(
             ratingBarValue = 4,
             ratingBarMaxValue = 5,
             rating = movie.userRating,
-            onDetailsClick = { onMovieClick(movie) }
+            buttonText = stringResource(R.string.details),
+            onClick = { onMovieClick(movie) }
         )
     }
 }
