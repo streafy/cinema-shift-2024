@@ -14,12 +14,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.streafy.cinemashift2024.R
 import com.streafy.cinemashift2024.domain.entity.Schedule
+import com.streafy.cinemashift2024.presentation.shared.screenstate.ErrorScreen
 import com.streafy.cinemashift2024.presentation.shared.screenstate.Loading
 
 @Composable
@@ -45,7 +44,10 @@ fun MovieScheduleScreen(
                 onTabClick = onTabClick
             )
         }
-        is MovieScheduleUiState.Error -> Text(text = stringResource(R.string.error))
+        is MovieScheduleUiState.Error -> ErrorScreen(
+            errorMessage = stateValue.message,
+            onRetry = { viewModel.getMovieSchedule(movieId, selectedTab)
+        })
         MovieScheduleUiState.Initial -> Unit
         MovieScheduleUiState.Loading -> Loading()
     }

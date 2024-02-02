@@ -21,6 +21,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.streafy.cinemashift2024.R
 import com.streafy.cinemashift2024.domain.entity.Movie
+import com.streafy.cinemashift2024.presentation.shared.screenstate.ErrorScreen
 import com.streafy.cinemashift2024.presentation.shared.screenstate.Loading
 
 @Composable
@@ -35,7 +36,10 @@ fun MovieListScreen(
             movies = stateValue.movies,
             onMovieClick = onMovieClick
         )
-        is MovieListUiState.Error -> Text(text = stringResource(R.string.error))
+        is MovieListUiState.Error -> ErrorScreen(
+            errorMessage = stateValue.message,
+            onRetry = { viewModel.loadMovies() }
+        )
         MovieListUiState.Initial -> Unit
         MovieListUiState.Loading -> Loading()
     }
