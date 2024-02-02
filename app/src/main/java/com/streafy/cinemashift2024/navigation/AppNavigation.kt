@@ -6,7 +6,9 @@ import androidx.navigation.compose.NavHost
 import com.streafy.cinemashift2024.navigation.destinations.MOVIE_LIST_ROUTE
 import com.streafy.cinemashift2024.navigation.destinations.movieDetails
 import com.streafy.cinemashift2024.navigation.destinations.movieList
+import com.streafy.cinemashift2024.navigation.destinations.movieSchedule
 import com.streafy.cinemashift2024.navigation.destinations.navigateToDetails
+import com.streafy.cinemashift2024.navigation.destinations.navigateToSchedule
 
 @Composable
 fun AppNavigation(
@@ -21,6 +23,15 @@ fun AppNavigation(
                 navController.navigateToDetails(movie.id)
             }
         )
-        movieDetails()
+        movieDetails(
+            onShowScheduleClick = { movieId ->
+                navController.navigateToSchedule(movieId)
+            }
+        )
+        movieSchedule(
+            onTabClick = { movieId, tabIndex ->
+                navController.navigateToSchedule(movieId, tabIndex)
+            }
+        )
     }
 }

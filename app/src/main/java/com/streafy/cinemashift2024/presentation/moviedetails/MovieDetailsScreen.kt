@@ -14,6 +14,7 @@ import com.streafy.cinemashift2024.presentation.shared.screenstate.Loading
 @Composable
 fun MovieDetailsScreen(
     movieId: Int,
+    onShowScheduleClick: (movieId: Int) -> Unit,
     viewModel: MovieDetailsViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -23,7 +24,10 @@ fun MovieDetailsScreen(
     }
 
     when (val stateValue = state) {
-        is MovieDetailsUiState.Content -> Content(stateValue.movie)
+        is MovieDetailsUiState.Content -> Content(
+            stateValue.movie,
+            onShowScheduleClick
+        )
         is MovieDetailsUiState.Error -> Text(text = stringResource(R.string.error))
         MovieDetailsUiState.Initial -> Unit
         MovieDetailsUiState.Loading -> Loading()
@@ -31,7 +35,13 @@ fun MovieDetailsScreen(
 }
 
 @Composable
-private fun Content(movie: Movie) {
-    MovieDetailsCard(movie = movie)
+private fun Content(
+    movie: Movie,
+    onShowScheduleClick: (movieId: Int) -> Unit
+) {
+    MovieDetailsCard(
+        movie = movie,
+        onClick = { onShowScheduleClick(movie.id) }
+    )
 }
 
