@@ -34,8 +34,6 @@ fun MovieDetailsCard(
         Description(
             title = movie.name,
             subtitle = movie.originalName,
-            ratingBarValue = 4,
-            ratingBarMaxValue = 5,
             rating = movie.userRating,
             buttonText = stringResource(R.string.show_schedule),
             onClick = onClick,
