@@ -15,7 +15,10 @@ import com.streafy.cinemashift2024.presentation.shared.cardelements.Description
 import com.streafy.cinemashift2024.presentation.shared.cardelements.ImageWithLabel
 
 @Composable
-fun MovieDetailsCard(movie: Movie) {
+fun MovieDetailsCard(
+    movie: Movie,
+    onClick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .padding(horizontal = 16.dp, vertical = 8.dp)
@@ -35,7 +38,7 @@ fun MovieDetailsCard(movie: Movie) {
             ratingBarMaxValue = 5,
             rating = movie.userRating,
             buttonText = stringResource(R.string.show_schedule),
-            onClick = {},
+            onClick = onClick,
             descriptionText = movie.description
         )
     }

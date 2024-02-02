@@ -10,7 +10,9 @@ import com.streafy.cinemashift2024.presentation.moviedetails.MovieDetailsScreen
 private const val BASE_ROUTE = "movie_details"
 private const val ID_KEY = "id"
 
-fun NavGraphBuilder.movieDetails() {
+fun NavGraphBuilder.movieDetails(
+    onShowScheduleClick: (movieId: Int) -> Unit
+) {
     composable(
         route = "$BASE_ROUTE/{$ID_KEY}",
         arguments = listOf(
@@ -23,7 +25,7 @@ fun NavGraphBuilder.movieDetails() {
         val arguments = requireNotNull(navBackStackEntry.arguments)
         val id = arguments.getInt(ID_KEY)
 
-        MovieDetailsScreen(id)
+        MovieDetailsScreen(id, onShowScheduleClick)
     }
 }
 
