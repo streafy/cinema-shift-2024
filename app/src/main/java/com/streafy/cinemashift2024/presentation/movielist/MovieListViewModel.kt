@@ -23,8 +23,12 @@ class MovieListViewModel @Inject constructor(
 
     fun loadMovies() = viewModelScope.launch {
         _state.value = MovieListUiState.Loading
-        repository.getMovies().collect { movies ->
-            _state.value = MovieListUiState.Content(movies)
+        try {
+            repository.getMovies().collect { movies ->
+                _state.value = MovieListUiState.Content(movies)
+            }
+        } catch (e: Exception) {
+            _state.value = MovieListUiState.Error(e.message)
         }
     }
 }
