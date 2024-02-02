@@ -31,8 +31,6 @@ fun MovieCard(
         Description(
             title = movie.name,
             subtitle = movie.originalName,
-            ratingBarValue = 4,
-            ratingBarMaxValue = 5,
             rating = movie.userRating,
             buttonText = stringResource(R.string.details),
             onClick = { onMovieClick(movie) }

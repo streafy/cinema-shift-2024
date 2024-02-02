@@ -14,15 +14,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
+const val RATING_DEFAULT = 4
+const val MAX_RATING_DEFAULT = 5
+
 @Composable
 fun Description(
     title: String,
     subtitle: String,
-    ratingBarValue: Int,
-    ratingBarMaxValue: Int,
     rating: Float,
     buttonText: String,
     onClick: () -> Unit,
+    ratingBarValue: Int = RATING_DEFAULT,
+    ratingBarMaxValue: Int = MAX_RATING_DEFAULT,
     descriptionText: String = ""
 ) {
     Column(
