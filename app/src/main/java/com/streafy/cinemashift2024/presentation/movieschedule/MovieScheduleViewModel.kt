@@ -2,7 +2,7 @@ package com.streafy.cinemashift2024.presentation.movieschedule
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.streafy.cinemashift2024.domain.repository.ScheduleRepository
+import com.streafy.cinemashift2024.domain.usecase.GetMovieScheduleUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieScheduleViewModel @Inject constructor(
-    private val repository: ScheduleRepository
+    private val getMovieScheduleUseCase: GetMovieScheduleUseCase
 ) : ViewModel() {
 
     private val _state = MutableStateFlow<MovieScheduleUiState>(MovieScheduleUiState.Initial)
@@ -20,7 +20,7 @@ class MovieScheduleViewModel @Inject constructor(
     fun getMovieSchedule(movieId: Int, tabId: Int) = viewModelScope.launch {
         _state.value = MovieScheduleUiState.Loading
         try {
-            repository.getMovieSchedules(
+            getMovieScheduleUseCase(
                 movieId = movieId,
                 scheduleId = tabId
             ).collect { schedules ->
