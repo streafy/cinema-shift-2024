@@ -1,7 +1,7 @@
 package com.streafy.cinemashift2024.data.remote
 
-import com.streafy.cinemashift2024.data.remote.model.MovieResponse
-import com.streafy.cinemashift2024.data.remote.model.MoviesResponse
+import com.streafy.cinemashift2024.data.remote.model.movie.MovieResponse
+import com.streafy.cinemashift2024.data.remote.model.movie.MoviesResponse
 import com.streafy.cinemashift2024.data.remote.model.schedule.ScheduleResponse
 import retrofit2.http.GET
 import retrofit2.http.Path

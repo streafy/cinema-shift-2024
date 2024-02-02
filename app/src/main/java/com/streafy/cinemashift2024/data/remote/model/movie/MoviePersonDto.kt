@@ -1,4 +1,4 @@
-package com.streafy.cinemashift2024.data.remote.model
+package com.streafy.cinemashift2024.data.remote.model.movie
 
 import kotlinx.serialization.Serializable
 

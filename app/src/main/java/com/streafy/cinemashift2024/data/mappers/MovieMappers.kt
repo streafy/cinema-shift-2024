@@ -1,6 +1,6 @@
 package com.streafy.cinemashift2024.data.mappers
 
-import com.streafy.cinemashift2024.data.remote.model.MovieDto
+import com.streafy.cinemashift2024.data.remote.model.movie.MovieDto
 import com.streafy.cinemashift2024.di.BASE_URL
 import com.streafy.cinemashift2024.domain.entity.Movie
 import java.time.LocalDate
