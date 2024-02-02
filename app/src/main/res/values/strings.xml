@@ -5,4 +5,5 @@
     <string name="profile_screen_name">Профиль</string>
     <string name="error">Ошибка</string>
     <string name="details">Подробнее</string>
+    <string name="show_schedule">Посмотреть расписание</string>
 </resources>

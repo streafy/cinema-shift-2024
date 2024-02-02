@@ -7,7 +7,9 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.streafy.cinemashift2024.R
 import com.streafy.cinemashift2024.domain.entity.Movie
 import com.streafy.cinemashift2024.presentation.shared.cardelements.Description
 import com.streafy.cinemashift2024.presentation.shared.cardelements.ImageWithLabel
@@ -32,7 +34,8 @@ fun MovieDetailsCard(movie: Movie) {
             ratingBarValue = 4,
             ratingBarMaxValue = 5,
             rating = movie.userRating,
-            onDetailsClick = {},
+            buttonText = stringResource(R.string.show_schedule),
+            onClick = {},
             descriptionText = movie.description
         )
     }
