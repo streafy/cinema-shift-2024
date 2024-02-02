@@ -17,7 +17,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.streafy.cinemashift2024.presentation.movielist.BASE_URL
 
 @Composable
 fun ImageWithLabel(
@@ -28,7 +27,7 @@ fun ImageWithLabel(
 ) {
     Box {
         AsyncImage(
-            model = "$BASE_URL${movieImageUri}",
+            model = movieImageUri,
             contentDescription = null,
             modifier = Modifier
                 .fillMaxWidth()

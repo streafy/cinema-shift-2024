@@ -11,7 +11,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
-private const val BASE_URL = "https://shift-backend.onrender.com/"
+const val BASE_URL = "https://shift-backend.onrender.com"
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -25,7 +25,7 @@ class NetworkModule {
 
         return Retrofit.Builder()
             .addConverterFactory(json.asConverterFactory(contentType))
-            .baseUrl(BASE_URL)
+            .baseUrl("$BASE_URL/")
             .build()
     }
 

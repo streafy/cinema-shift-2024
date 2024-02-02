@@ -12,8 +12,6 @@ import com.streafy.cinemashift2024.domain.entity.Movie
 import com.streafy.cinemashift2024.presentation.shared.cardelements.Description
 import com.streafy.cinemashift2024.presentation.shared.cardelements.ImageWithLabel
 
-const val BASE_URL = "https://shift-backend.onrender.com" //TODO: extract somewhere
-
 @Composable
 fun MovieCard(
     movie: Movie,
