@@ -7,5 +7,5 @@ class GetMovieScheduleUseCase(
 ) {
 
     operator fun invoke(movieId: Int, scheduleId: Int) =
-        repository.getMovieSchedules(movieId, scheduleId)
+        repository.getMovieSchedule(movieId, scheduleId)
 }
