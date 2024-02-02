@@ -24,12 +24,16 @@ import com.streafy.cinemashift2024.domain.entity.Movie
 
 @Composable
 fun MovieListScreen(
+    onMovieClick: (Movie) -> Unit,
     viewModel: MovieListViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     when (val stateValue = state) {
-        is MovieListUiState.Content -> Content(movies = stateValue.movies)
+        is MovieListUiState.Content -> Content(
+            movies = stateValue.movies,
+            onMovieClick = onMovieClick
+        )
         is MovieListUiState.Error -> Text(text = "Error")
         MovieListUiState.Initial -> Unit
         MovieListUiState.Loading -> Loading()
@@ -37,7 +41,10 @@ fun MovieListScreen(
 }
 
 @Composable
-private fun Content(movies: List<Movie>) {
+private fun Content(
+    movies: List<Movie>,
+    onMovieClick: (Movie) -> Unit
+) {
     Scaffold(
         topBar = { TopBar() },
         bottomBar = {
@@ -48,7 +55,10 @@ private fun Content(movies: List<Movie>) {
             Modifier.padding(paddingValues)
         ) {
             items(movies) { movie ->
-                MovieCard(movie = movie)
+                MovieCard(
+                    movie = movie,
+                    onMovieClick = onMovieClick
+                )
             }
         }
     }

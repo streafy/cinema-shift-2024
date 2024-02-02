@@ -26,7 +26,10 @@ import com.streafy.cinemashift2024.domain.entity.Movie
 const val BASE_URL = "https://shift-backend.onrender.com" //TODO: extract somewhere
 
 @Composable
-fun MovieCard(movie: Movie) {
+fun MovieCard(
+    movie: Movie,
+    onMovieClick: (Movie) -> Unit
+) {
     Column(
         modifier = Modifier
             .padding(horizontal = 16.dp, vertical = 8.dp)
@@ -44,7 +47,7 @@ fun MovieCard(movie: Movie) {
             ratingBarValue = 4,
             ratingBarMaxValue = 5,
             rating = movie.userRating,
-            onDetailsClick = {}
+            onDetailsClick = { onMovieClick(movie) }
         )
     }
 }
