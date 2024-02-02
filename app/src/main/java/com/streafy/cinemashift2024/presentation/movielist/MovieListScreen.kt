@@ -15,9 +15,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.streafy.cinemashift2024.R
 import com.streafy.cinemashift2024.domain.entity.Movie
 import com.streafy.cinemashift2024.presentation.shared.screenstate.Loading
 
@@ -33,7 +35,7 @@ fun MovieListScreen(
             movies = stateValue.movies,
             onMovieClick = onMovieClick
         )
-        is MovieListUiState.Error -> Text(text = "Error")
+        is MovieListUiState.Error -> Text(text = stringResource(R.string.error))
         MovieListUiState.Initial -> Unit
         MovieListUiState.Loading -> Loading()
     }
@@ -71,7 +73,7 @@ private fun TopBar() {
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = "Афиша",
+            text = stringResource(R.string.movie_list_screen_name),
             modifier = Modifier.padding(vertical = 12.dp),
             style = MaterialTheme.typography.headlineLarge
         )
@@ -81,12 +83,14 @@ private fun TopBar() {
 @Composable
 private fun BottomBar() {
     Row(
-        modifier = Modifier.fillMaxWidth().height(58.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(58.dp),
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(text = "Афиша")
-        Text(text = "Билеты")
-        Text(text = "Профиль")
+        Text(text = stringResource(R.string.movie_list_screen_name))
+        Text(text = stringResource(R.string.tickets_screen_name))
+        Text(text = stringResource(R.string.profile_screen_name))
     }
 }

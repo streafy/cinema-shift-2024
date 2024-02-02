@@ -4,8 +4,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.streafy.cinemashift2024.R
 import com.streafy.cinemashift2024.domain.entity.Movie
 import com.streafy.cinemashift2024.presentation.shared.screenstate.Loading
 
@@ -22,7 +24,7 @@ fun MovieDetailsScreen(
 
     when (val stateValue = state) {
         is MovieDetailsUiState.Content -> Content(stateValue.movie)
-        is MovieDetailsUiState.Error -> Text(text = "Error")
+        is MovieDetailsUiState.Error -> Text(text = stringResource(R.string.error))
         MovieDetailsUiState.Initial -> Unit
         MovieDetailsUiState.Loading -> Loading()
     }
