@@ -15,4 +15,9 @@ class MovieRepositoryImpl(
         val movies = api.getMovies().movies
         emit(movies.map { movieDto -> movieDto.toMovie() })
     }
+
+    override fun getMovieById(id: Int): Flow<Movie> = flow {
+        val movie = api.getMovieById(id.toString()).movie.toMovie()
+        emit(movie)
+    }
 }
