@@ -3,13 +3,11 @@ package com.streafy.cinemashift2024.presentation.movielist
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -21,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.streafy.cinemashift2024.domain.entity.Movie
+import com.streafy.cinemashift2024.presentation.shared.screenstate.Loading
 
 @Composable
 fun MovieListScreen(
@@ -89,15 +88,5 @@ private fun BottomBar() {
         Text(text = "Афиша")
         Text(text = "Билеты")
         Text(text = "Профиль")
-    }
-}
-
-@Composable
-private fun Loading() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        CircularProgressIndicator()
     }
 }
