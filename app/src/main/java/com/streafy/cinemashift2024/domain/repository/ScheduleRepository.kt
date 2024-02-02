@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface ScheduleRepository {
 
-    fun getMovieSchedules(
+    fun getMovieSchedule(
         movieId: Int,
         scheduleId: Int
     ): Flow<Pair<MovieDates, Schedule>>

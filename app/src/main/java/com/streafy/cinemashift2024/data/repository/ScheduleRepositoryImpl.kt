@@ -12,7 +12,7 @@ class ScheduleRepositoryImpl(
     private val movieApi: MovieApi
 ) : ScheduleRepository {
 
-    override fun getMovieSchedules(
+    override fun getMovieSchedule(
         movieId: Int,
         scheduleId: Int
     ): Flow<Pair<MovieDates, Schedule>> = flow {
