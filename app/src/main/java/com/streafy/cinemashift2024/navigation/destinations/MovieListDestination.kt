@@ -4,13 +4,15 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.streafy.cinemashift2024.domain.entity.Movie
 import com.streafy.cinemashift2024.presentation.movielist.MovieListScreen
+import kotlinx.serialization.Serializable
 
-const val MOVIE_LIST_ROUTE = "movie_list"
+@Serializable
+object MovieList
 
 fun NavGraphBuilder.movieList(
     onMovieClick: (Movie) -> Unit
 ) {
-    composable(route = MOVIE_LIST_ROUTE) {
+    composable<MovieList> {
         MovieListScreen(onMovieClick = onMovieClick)
     }
 }
