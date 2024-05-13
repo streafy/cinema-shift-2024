@@ -2,33 +2,25 @@ package com.streafy.cinemashift2024.navigation.destinations
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.NavType
 import androidx.navigation.compose.composable
-import androidx.navigation.navArgument
+import androidx.navigation.toRoute
 import com.streafy.cinemashift2024.presentation.moviedetails.MovieDetailsScreen
+import kotlinx.serialization.Serializable
 
-private const val BASE_ROUTE = "movie_details"
-private const val ID_KEY = "id"
+@Serializable
+data class MovieDetails(val id: Int)
 
 fun NavGraphBuilder.movieDetails(
     onShowScheduleClick: (movieId: Int) -> Unit
 ) {
-    composable(
-        route = "$BASE_ROUTE/{$ID_KEY}",
-        arguments = listOf(
-            navArgument(ID_KEY) {
-                type = NavType.IntType
-                nullable = false
-            }
-        )
-    ) { navBackStackEntry ->
-        val arguments = requireNotNull(navBackStackEntry.arguments)
-        val id = arguments.getInt(ID_KEY)
+    composable<MovieDetails> { navBackStackEntry ->
+        val movieDetails: MovieDetails = navBackStackEntry.toRoute()
+        val id = movieDetails.id
 
         MovieDetailsScreen(id, onShowScheduleClick)
     }
 }
 
 fun NavController.navigateToDetails(id: Int) {
-    navigate("$BASE_ROUTE/$id")
+    navigate(MovieDetails(id))
 }
