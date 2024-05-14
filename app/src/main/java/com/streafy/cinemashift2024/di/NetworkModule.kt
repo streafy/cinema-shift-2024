@@ -6,9 +6,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.json.Json
-import okhttp3.MediaType.Companion.toMediaType
-import retrofit2.Retrofit
-import retrofit2.converter.kotlinx.serialization.asConverterFactory
+import okhttp3.OkHttpClient
 import javax.inject.Singleton
 
 const val BASE_URL = "https://shift-backend.onrender.com"
@@ -19,18 +17,14 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(): Retrofit {
-        val contentType = "application/json".toMediaType()
-        val json = Json { ignoreUnknownKeys = true }
-
-        return Retrofit.Builder()
-            .addConverterFactory(json.asConverterFactory(contentType))
-            .baseUrl("$BASE_URL/")
-            .build()
-    }
+    fun provideMovieApi(okHttpClient: OkHttpClient, json: Json): MovieApi =
+        MovieApi(BASE_URL, okHttpClient, json)
 
     @Provides
     @Singleton
-    fun provideMovieApi(retrofit: Retrofit): MovieApi =
-        retrofit.create(MovieApi::class.java)
+    fun provideOkHttpClient() = OkHttpClient()
+
+    @Provides
+    @Singleton
+    fun provideJson() = Json { ignoreUnknownKeys = true }
 }
