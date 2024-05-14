@@ -1,6 +1,5 @@
 package com.streafy.cinemashift2024.di
 
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.streafy.cinemashift2024.data.remote.MovieApi
 import dagger.Module
 import dagger.Provides
@@ -9,6 +8,7 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
+import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import javax.inject.Singleton
 
 const val BASE_URL = "https://shift-backend.onrender.com"

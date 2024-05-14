@@ -77,7 +77,7 @@ dependencies {
 
     //Retrofit
     implementation(libs.retrofit)
-    implementation(libs.retrofit2.kotlinx.serialization.converter)
+    implementation(libs.retrofit.converter.kotlinx.serialization)
 
     //Kotlinx Serialization
     implementation(libs.kotlinx.serialization.json)
